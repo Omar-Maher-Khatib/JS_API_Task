@@ -10,6 +10,9 @@ body {
 }
 
 .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 900px;
     margin: 0 auto;
     padding: 0 16px;
@@ -98,6 +101,9 @@ body {
 }
 
 .product-card {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,25 +117,91 @@ body {
     transition: all 0.3s ease;
 }
 
-@media (max-width: 700px) {
-    .navbar {
-        flex-wrap: wrap;
-        gap: 0;
-        min-height: 64px;
-        padding: 0 18px;
-    }
+.product-card img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
 
-    .nav-links {
-        display: none;
-        flex-basis: 100%;
-        flex-direction: column;
-        gap: 0;
-        padding: 8px 0;
-    }
+.products .product-info {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
 
-    .nav-links a {
-        display: block;
-        padding: 13px 0;
-        width: 100%;
-    }
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 120px;
+    margin-top: 8px;
+    font-family: Arial, sans-serif;
+    color: #188764;
+}
+
+.products-details {
+    background-color: #ffffff;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 850px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 8px;
+    padding: 16px;
+    font-family: Arial, sans-serif;
+    color: #182230;
+}
+
+.products-details img {
+    width: 300px;
+    border-radius: 8px;
+}
+
+.products-details .product-info {
+    padding: 16px 24px;
+    flex: 1;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    color: #182230;
+}
+
+.product-description {
+    margin: 0 0 16px;
+    font-size: 0.9rem;
+    color: #526071;
+}
+
+.products-details .product-info > span {
+    display: block;
+    margin-bottom: 16px;
+}
+
+.reviews {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.reviews h4 {
+    margin-bottom: 8px;
+    color: #188764;
+}
+
+.review {
+    border-top: 1px solid #e8ebf0;
+    padding: 8px 0;
+}
+
+.review span {
+    color: #188764;
+    font-size: 0.85rem;
+    margin-left: 8px;
+}
+
+.review p {
+    color: #526071;
+    font-size: 0.85rem;
+    margin-top: 4px;
 }

@@ -1,27 +1,31 @@
+//get categories list from API
 const getCategoriesList = async () => {
   const categoriesList = await axios.get("https://dummyjson.com/products/category-list");
   return categoriesList.data;
 };
 
+//display categories list in the hero section of categories.html page
 const displayCategories = async () => {
   const categories = await getCategoriesList();
   const result = categories.map((category) => {
     return `
       <li class="category-list">
-        <a href="#" class="category-card" data-category="${category}">${category}</a>
+        <a href="./products.html?category=${encodeURIComponent(category)}" class="category-card">${category}</a>
       </li>
     `;
   }); 
-  document.getElementById("hero").innerHTML = result.join("");
+  const hero = document.getElementById("hero");
+  if (hero) hero.innerHTML = result.join("");
  }
- displayCategories();
 
- 
+
+ //get products by category from API
 const getProductsByCategory = async (category) => {
   const products = await axios.get(`https://dummyjson.com/products/category/${category}`);
   return products.data;
 }
 
+//display products by category in the products.html page
 const displayProducts = async (category) => {
   const products = await getProductsByCategory(category);
   const result = products.products.map((product) => {
@@ -34,13 +38,17 @@ const displayProducts = async (category) => {
       </div>
     `;
   });
-  document.getElementById("products").innerHTML = result.join("");
+  const productsContainer = document.getElementById("products");
+  if (productsContainer) productsContainer.innerHTML = result.join("");
 }
 
-// Call displayProducts when a category is clicked
-document.getElementById("hero").addEventListener("click", (e) => {
-  if (e.target.classList.contains("category-card")) {
-    const category = e.target.getAttribute("data-category");
-    displayProducts(category);
-  }
-});
+const hero = document.getElementById("hero");
+if (hero) {
+  displayCategories();
+}
+
+const productsContainer = document.getElementById("products");
+if (productsContainer) {
+  const category = new URLSearchParams(window.location.search).get("category");
+  if (category) displayProducts(category);
+}

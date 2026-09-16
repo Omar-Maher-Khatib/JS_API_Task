@@ -9,6 +9,12 @@ body {
     color: #182230;
 }
 
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
 .site-header {
     background-color: #ffffff;
     border-bottom: 1px solid #e8ebf0;
@@ -46,32 +52,49 @@ body {
     color: #2563eb;
 }
 
-.hero {
+#hero {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 400px;
+    flex-wrap: wrap;
+    min-height: 200px;
+    margin-top: 20px;
 }
 
 .category-list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    list-style: none;
     text-align: center;
-    width: 100%;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 16px;
     width: 200px; 
     margin: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-list:hover {
+    color: #ffffff;
+    background-color: #188764;
 }
 
 .category-card {
+    text-transform: capitalize;
     text-decoration: none;
+    font-family: Arial, sans-serif;
     color: #182230;
+}
+
+#products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+    padding: 16px;
 }
 
 @media (max-width: 700px) {
